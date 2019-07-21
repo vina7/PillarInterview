@@ -1,0 +1,48 @@
+<style type="text/css">
+	table, th, td {
+      border: 1px solid black;
+    }
+</style>
+{% if returnData %}
+<h1>Top Repos based on Forks</h1>
+<table style="width:100%">
+	<tr>
+	    <th>Repo Name</th>
+	    <th>Number of Forks</th> 
+	</tr>
+	{% for forks in returnData['TopForks'] %}
+	    <tr>
+        	<td>{{ forks[0] }}</td>
+        	<td>{{ forks[1] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<h1> Top Repos Based on Stars</h1>
+<table style="width:100%">
+	<tr>
+	    <th>Repo Name</th>
+	    <th>Number of Stars</th> 
+	</tr>
+	{% for stars in returnData['TopStars'] %}
+	   <tr>
+        	<td>{{ stars[0] }}</td>
+        	<td>{{ stars[1] }}</td>
+    	</tr> 
+    {% endfor %}
+</table>
+
+<h1> Top Repos Based on Contributors</h1>
+<table style="width:100%">
+	<tr>
+	    <th>Repo Name</th>
+	    <th>Number of Contributors</th> 
+	</tr>
+	{% for cont in returnData['TopContributors'] %}
+	   <tr>
+        <td>{{ cont[0] }}</td>
+        <td>{{ cont[1] }}</td>
+       </tr>
+    {% endfor %}
+</table>
+{% endif %}

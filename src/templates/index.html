@@ -1,0 +1,35 @@
+<!doctype html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<label for="org"><b>Github Organization</b></label>
+<input type="text" placeholder="Enter Org " name="org" id="org" required>
+<label for="top"><b>Top</b></label>
+<input type="text" placeholder="Enter a number" name="topnum" id="topnum" >
+<button type="submit" id="search_form_input">search</button>
+
+<form action="{{url_for('logout')}}" method="POST">
+	<button type="submit">Logout</button>
+</form>
+
+
+<div id="top_results"></div>
+
+
+<script>
+	$("#search_form_input").click(function(){
+        
+        var orgVal = $("#org").val();
+        var top  = $('#topnum').val();
+	    $.ajax({
+	      url: "{{url_for('search_org_data')}}",
+	      type: "get",
+	      data: {org: orgVal, topNum: top},
+	      success: function(response) {
+	        $("#top_results").html(response);
+	      },
+	      error: function(xhr) {
+	        $("#top_results").html("error occured");
+	      }
+	    });
+	});
+</script>

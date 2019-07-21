@@ -1,0 +1,15 @@
+Written in Python3
+
+To run:
+  
+  install venv
+  
+  Then "source env/bin/activate"
+  
+  pip3 install -r requirements.txt
+
+  flask run
+
+  open browser to http://127.0.0.1:5000/ 
+
+

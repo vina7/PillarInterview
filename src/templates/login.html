@@ -1,0 +1,13 @@
+<!doctype html>
+<title>Login</title>
+<h1> Login To GitHub Dashboard App </h1>
+<form action="{{url_for('login')}}" method="POST">
+	<label for="uname"><b>Github Username</b></label>
+	<input type="text" placeholder="Enter Username" name="uname" required>
+
+	<label for="token"><b>Provide your GitHub Token</b></label>
+	<input type="password" placeholder="Enter Token" name="token" required>
+
+	<button type="submit">Login</button>
+</form>
+<label>
